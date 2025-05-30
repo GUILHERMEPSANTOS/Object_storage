@@ -2,6 +2,6 @@
 {
     public interface IStorageProvider
     {
-        Task UploadFileAsync(UploadFile file, string bucketName, string objectName);
+        Task UploadFileAsync(UploadFile file, string bucketName);
     }
 }

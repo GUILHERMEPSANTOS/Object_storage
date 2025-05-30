@@ -1,11 +1,13 @@
-﻿using Object.Storage.Infra.Storage;
+﻿using Object.Storage.Api.Controllers;
+using Object.Storage.Infra.Storage;
+using Object.Storage.Infra.Storage.Minio;
 
 namespace Object.Storage.Api.Services.Images
 {
 
     public interface IImageService
     {   
-        Task UploadImageAsync(IFormFile file);
+        Task UploadImageAsync(FileUploadRequest fileUpload);
     }
 
     public class ImageService : IImageService
@@ -17,10 +19,14 @@ namespace Object.Storage.Api.Services.Images
             _storageProvider = storageProvider;
         }
 
-        public Task UploadImageAsync(IFormFile file)
+        public async Task UploadImageAsync(FileUploadRequest fileUpload)
         {
-            //Implementtion of image upload logic
-            return Task.CompletedTask;
+            var uploadFile = new UploadFile(fileUpload.File, fileUpload.SubPath);
+           
+           await  _storageProvider.UploadFileAsync(
+                uploadFile,
+                BucketTopology.Images                
+            );           
         }
     }
 }

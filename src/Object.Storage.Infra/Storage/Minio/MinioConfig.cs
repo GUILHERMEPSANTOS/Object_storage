@@ -16,7 +16,7 @@ namespace Object.Storage.Infra.Storage.Minio
             }
             services.AddMinio(configureClient => configureClient
                 .WithEndpoint(minioOptions.Endpoint)                
-                .WithCredentials(minioOptions.AcessKey, minioOptions.SecretKey)
+                .WithCredentials(minioOptions.AccessKey, minioOptions.SecretKey)
                 .WithSSL(false)
                 .Build());
 

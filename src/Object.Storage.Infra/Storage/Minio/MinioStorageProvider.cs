@@ -13,7 +13,7 @@ namespace Object.Storage.Infra.Storage.Minio
             _minioClient = minioClient;
         }
 
-        public async Task UploadFileAsync(UploadFile uploadFile, string bucketName, string objectName)
+        public async Task UploadFileAsync(UploadFile uploadFile, string bucketName)
         {
             if(!BucketTopology.IsValidBucketName(bucketName))
                 throw new Exception($"Bucket name '{bucketName}' is not valid. Valid names are: {string.Join(", ", BucketTopology.ValidBucketNames)}.");
@@ -30,7 +30,7 @@ namespace Object.Storage.Infra.Storage.Minio
 
             var putObjectArgs = new PutObjectArgs()
                     .WithBucket(bucketName)
-                    .WithObject(objectName)                    
+                    .WithObject(uploadFile.ObjectName)                    
                     .WithStreamData(stream)
                     .WithObjectSize(uploadFile.Length)
                     .WithContentType(uploadFile.ContentType);
@@ -57,7 +57,5 @@ namespace Object.Storage.Infra.Storage.Minio
 
             return await _minioClient.BucketExistsAsync(beArgs);
         }
-
-
     }
 }

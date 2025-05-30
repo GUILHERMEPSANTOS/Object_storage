@@ -4,14 +4,18 @@ namespace Object.Storage.Infra.Storage
 {
     public class UploadFile
     {
-        public IFormFile File { get; private set; }        
+        public IFormFile File { get; private set; }
+        public string SubPath { get; set; }
         public string FileName => File?.FileName ?? string.Empty;
         public string ContentType => File?.ContentType ?? string.Empty;
-        public long Length => File?.Length ?? 0;       
-               
-        public UploadFile(IFormFile file)
+        public long Length => File?.Length ?? 0;
+        public string ObjectName => $"{SubPath}/{File.FileName}";
+
+
+        public UploadFile(IFormFile file, string subPath)
         {
             File = file;
+            SubPath = subPath;
         }              
         
         public bool IsValid()

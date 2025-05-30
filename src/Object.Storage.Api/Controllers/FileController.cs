@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Minio;
-using Minio.DataModel.Args;
-using Minio.Exceptions;
-using Object.Storage.Infra.Storage;
+using Object.Storage.Api.Services.Images;
 
 namespace Object.Storage.Api.Controllers
 {
@@ -10,17 +7,19 @@ namespace Object.Storage.Api.Controllers
     [Route("v1/file")]
     public class FileController : ControllerBase
     {
-        private readonly IStorageProvider storageProvider;
+        private readonly IImageService _imageService;
 
-        public FileController(IStorageProvider storageProvider)
+        public FileController(IImageService imageService)
         {
-            this.storageProvider = storageProvider;
+            _imageService = imageService;
         }
 
         [HttpPost]
-        public async Task<ActionResult> UploadToMinio(IFormFile file)
+        public async Task<ActionResult> UploadToMinio([FromForm] FileUploadRequest file)
         {
-            
+            await _imageService.UploadImageAsync(file);
+
+            return Ok();
         }
     }
 }
