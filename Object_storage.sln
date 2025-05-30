@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Object.Storage.Api", "src\Object.Storage.Api\Object.Storage.Api.csproj", "{35BC51D0-898E-4F57-A1A8-7C227896C3D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Object.Storage.Infra", "src\Object.Storage.Infra\Object.Storage.Infra.csproj", "{668693BF-966A-4B95-8307-CD55C12554A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{35BC51D0-898E-4F57-A1A8-7C227896C3D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35BC51D0-898E-4F57-A1A8-7C227896C3D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35BC51D0-898E-4F57-A1A8-7C227896C3D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668693BF-966A-4B95-8307-CD55C12554A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668693BF-966A-4B95-8307-CD55C12554A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668693BF-966A-4B95-8307-CD55C12554A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668693BF-966A-4B95-8307-CD55C12554A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{35BC51D0-898E-4F57-A1A8-7C227896C3D5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{668693BF-966A-4B95-8307-CD55C12554A7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09E22769-FED4-46A9-B303-4D84A22F9429}

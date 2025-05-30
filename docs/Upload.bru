@@ -4,8 +4,12 @@ meta {
   seq: 2
 }
 
-get {
-  url: 
-  body: none
+post {
+  url: https://localhost:7060/v1/file
+  body: multipartForm
   auth: none
+}
+
+body:multipart-form {
+  file: @file(C:\Users\guilh\OneDrive\Imagens\Capturas de tela\Screenshot 2025-04-20 223313.png)
 }
