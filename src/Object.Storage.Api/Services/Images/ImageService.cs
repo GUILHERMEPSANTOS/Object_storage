@@ -4,12 +4,6 @@ using Object.Storage.Infra.Storage.Minio;
 
 namespace Object.Storage.Api.Services.Images
 {
-
-    public interface IImageService
-    {   
-        Task UploadImageAsync(FileUploadRequest fileUpload);
-    }
-
     public class ImageService : IImageService
     {
         private readonly IStorageProvider _storageProvider;
@@ -19,14 +13,14 @@ namespace Object.Storage.Api.Services.Images
             _storageProvider = storageProvider;
         }
 
-        public async Task UploadImageAsync(FileUploadRequest fileUpload)
+        public async Task UploadAsync(FileUploadRequest fileUpload)
         {
             var uploadFile = new UploadFile(fileUpload.File, fileUpload.SubPath);
-           
-           await  _storageProvider.UploadFileAsync(
-                uploadFile,
-                BucketTopology.Images                
-            );           
+
+            await _storageProvider.UploadFileAsync(
+                 uploadFile,
+                 BucketTopology.Images
+             );
         }
     }
 }

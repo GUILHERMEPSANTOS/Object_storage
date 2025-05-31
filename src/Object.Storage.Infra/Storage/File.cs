@@ -9,7 +9,7 @@ namespace Object.Storage.Infra.Storage
         public string FileName => File?.FileName ?? string.Empty;
         public string ContentType => File?.ContentType ?? string.Empty;
         public long Length => File?.Length ?? 0;
-        public string ObjectName => $"{SubPath}/{File.FileName}";
+        public string ObjectName => $"{SubPath}/{File.FileName}{Guid.NewGuid()}";
 
 
         public UploadFile(IFormFile file, string subPath)

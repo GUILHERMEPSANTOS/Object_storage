@@ -1,4 +1,5 @@
 using Object.Storage.Api.Services.Images;
+using Object.Storage.Api.Services.VIdeos;
 using Object.Storage.Infra.Storage.Minio;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMinioStorage(builder.Configuration);
 builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddScoped<IVideoService, VideoService>();
 
 var app = builder.Build();
 
